@@ -1,2 +1,13 @@
+# Ignore everything
 /*
+
+# Except .emacs.d/init.el
+!/.emacs.d
+/.emacs.d/*
+!/.emacs.d/init.el
+
+# And a few other files
+!/README.md
+!/.bash_profile
+!/.bashrc
 !/.gitignore
