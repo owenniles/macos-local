@@ -1,6 +1,9 @@
 # Local macOS home directory
 
-On a new Mac, close this repository with
+Run the following in your user's home directory on a new Mac:
 ```bash
-git clone git@github.com:owenniles/macos-local.git ~
+git init
+git remote add origin git@github.com:owenniles/macos-local.git
+git fetch
+git checkout main
 ```
