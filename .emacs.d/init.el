@@ -10,7 +10,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
- '(epg-gpg-program "/usr/local/bin/gpg2")
  '(inhibit-startup-screen t)
  '(js-indent-level 2)
  '(mac-auto-operator-composition-mode t)
