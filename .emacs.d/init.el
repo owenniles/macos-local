@@ -1,4 +1,4 @@
-(setq server-socket-dir "~/.emacs.d/server/")
+(setq server-socket-dir "~/.emacs.d")
 (add-to-list 'auto-mode-alist '("\\.ml[iylp]?$" . caml-mode))
 (autoload 'caml-mode "caml" "Major mode for editing OCaml code." t)
 (if window-system (require 'caml-font))

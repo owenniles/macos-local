@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export EDITOR="emacsclient -s $HOME/.emacs.d/server/server"
+export EDITOR="emacsclient -s $HOME/.emacs.d/server"
 export PATH="$HOME/.local/bin:$PATH"
 export PS1="\w $ "
 
