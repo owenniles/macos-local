@@ -6,4 +6,7 @@ git init
 git remote add origin git@github.com:owenniles/macos-local.git
 git fetch
 git checkout main
+git submodule init
+git submodule update
 ```
+Follow the instructions for compiling `emacs-libvterm` [here](https://github.com/akermu/emacs-libvterm).
