@@ -11,4 +11,5 @@
 !/README.md
 !/.bash_profile
 !/.bashrc
+!/.git-completion.sh
 !/.gitignore
