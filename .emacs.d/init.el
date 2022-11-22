@@ -27,7 +27,6 @@
  '(menu-bar-mode nil)
  '(org-babel-load-languages '((shell . t) (emacs-lisp . t)))
  '(scroll-bar-mode nil)
- '(server-mode t)
  '(server-name "server")
  '(set-mark-command-repeat-pop t)
  '(tool-bar-mode nil)
@@ -43,3 +42,5 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "Fira Code" :foundry "nil" :slant normal :weight normal :height 120 :width normal))))
  '(fringe ((t (:inherit default)))))
+
+(server-start)
