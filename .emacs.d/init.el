@@ -1,5 +1,8 @@
+(setq gofmt-command "goimports")
+(setq mac-command-modifier 'meta)
 (setq server-socket-dir "~/.emacs.d")
 
+(add-to-list 'exec-path "~/go/bin")
 (add-to-list 'load-path "~/.emacs.d/packages")
 (add-to-list 'load-path "~/.emacs.d/packages/emacs-libvterm")
 (add-to-list 'load-path "~/.emacs.d/packages/go-mode.el")
@@ -13,6 +16,9 @@
 
 (autoload 'vterm "vterm" nil t)
 
+(add-hook
+ 'before-save-hook
+ (lambda () (unless (file-remote-p default-directory) (gofmt-before-save))))
 (add-hook 'go-mode-hook (lambda () (setq tab-width 2)))
 
 (custom-set-variables

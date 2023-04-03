@@ -1,7 +1,8 @@
 #!/bin/bash
 
+PATH="$HOME/.local/bin:/usr/local/go/bin:$PATH"
+export PATH="$(go env GOPATH)/bin:$PATH"
 export EDITOR="emacsclient -s $HOME/.emacs.d/server"
-export PATH="$HOME/.local/bin:$PATH"
 export PS1="\w $ "
 
 # https://opensource.apple.com/source/Git/Git-19/src/git/contrib/completion/git-completion.bash
