@@ -4,13 +4,17 @@
 
 (add-to-list 'exec-path "~/go/bin")
 (add-to-list 'load-path "~/.emacs.d/packages")
+(add-to-list 'load-path "~/.emacs.d/packages/dash.el")
+(add-to-list 'load-path "~/.emacs.d/packages/emacs-hcl-mode")
 (add-to-list 'load-path "~/.emacs.d/packages/emacs-libvterm")
 (add-to-list 'load-path "~/.emacs.d/packages/go-mode.el")
+(add-to-list 'load-path "~/.emacs.d/packages/terraform-mode")
 (add-to-list 'load-path "~/.emacs.d/packages/typescript.el")
 (add-to-list 'load-path "~/.emacs.d/packages/yaml-mode")
 
 (require 'go-mode)
 (require 'protobuf-mode)
+(require 'terraform-mode)
 (require 'typescript-mode)
 (require 'yaml-mode)
 

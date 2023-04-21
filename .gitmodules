@@ -10,3 +10,12 @@
 [submodule ".emacs.d/packages/yaml-mode"]
 	path = .emacs.d/packages/yaml-mode
 	url = https://github.com/yoshiki/yaml-mode.git
+[submodule ".emacs.d/packages/terraform-mode"]
+	path = .emacs.d/packages/terraform-mode
+	url = https://github.com/emacsorphanage/terraform-mode.git
+[submodule ".emacs.d/packages/emacs-hcl-mode"]
+	path = .emacs.d/packages/emacs-hcl-mode
+	url = https://github.com/purcell/emacs-hcl-mode.git
+[submodule ".emacs.d/packages/dash.el"]
+	path = .emacs.d/packages/dash.el
+	url = https://github.com/magnars/dash.el.git
