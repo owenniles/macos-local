@@ -19,3 +19,12 @@
 [submodule ".emacs.d/packages/dash.el"]
 	path = .emacs.d/packages/dash.el
 	url = https://github.com/magnars/dash.el.git
+[submodule ".emacs.d/packages/copilot.el"]
+	path = .emacs.d/packages/copilot.el
+	url = https://github.com/zerolfx/copilot.el.git
+[submodule ".emacs.d/packages/editorconfig-emacs"]
+	path = .emacs.d/packages/editorconfig-emacs
+	url = https://github.com/editorconfig/editorconfig-emacs.git
+[submodule ".emacs.d/packages/s.el"]
+	path = .emacs.d/packages/s.el
+	url = https://github.com/magnars/s.el.git
