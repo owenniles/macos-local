@@ -1,35 +1,35 @@
-#!/bin/bash
+# ~/.bashrc — interactive Bash configuration
 
-PATH="$HOME/.local/bin:/usr/local/go/bin:$PATH"
-export PATH="$(go env GOPATH)/bin:$PATH"
-export EDITOR="emacsclient -s $HOME/.emacs.d/server"
-export PS1="\w $ "
+# This file is also sourced by .bash_profile.  Avoid loading completions and
+# version managers for non-interactive shells.
+case $- in
+  *i*) ;;
+  *) return ;;
+esac
 
-# https://opensource.apple.com/source/Git/Git-19/src/git/contrib/completion/git-completion.bash
-source ~/.git-completion.sh
-
-# The logic that sets HOMEBREW_PREFIX is modified from
-# https://github.com/Homebrew/install/blob/805136bcfcbc40b95e476639fb2407773ab26445/install.sh#L125-L136
-UNAME_MACHINE="$(/usr/bin/uname -m)"
-
-if [ "$UNAME_MACHINE" = "arm64" ]; then
-  HOMEBREW_PREFIX="/opt/homebrew"
-else
-  HOMEBREW_PREFIX="/usr/local"
+# Homebrew is installed in a different location on Intel and Apple Silicon.
+if [[ -x /opt/homebrew/bin/brew ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [[ -x /usr/local/bin/brew ]]; then
+  eval "$(/usr/local/bin/brew shellenv)"
 fi
 
-if [ -r "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh" ]; then
-    . "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh"
+# Locally installed tools.
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$HOME/bin:$HOME/.local/bin:$BUN_INSTALL/bin:$PATH"
+
+# Shell completion.
+[[ -r "$HOME/.git-completion.sh" ]] && source "$HOME/.git-completion.sh"
+if [[ -n ${HOMEBREW_PREFIX:-} && -r "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh" ]]; then
+  source "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh"
 fi
 
-if [[ "$INSIDE_EMACS" = 'vterm' ]] \
-    && [[ -n ${EMACS_VTERM_PATH} ]] \
-    && [[ -f ${EMACS_VTERM_PATH}/etc/emacs-vterm-bash.sh ]]; then
-	source ${EMACS_VTERM_PATH}/etc/emacs-vterm-bash.sh
-fi
-
-eval "$("$HOMEBREW_PREFIX"/bin/brew shellenv)"
-
+# Node Version Manager (and its completion, when available).
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
+[[ -s "$NVM_DIR/bash_completion" ]] && source "$NVM_DIR/bash_completion"
+
+# GVM (Go Version Manager)
+if [ -x "$HOME/bin/gvm" ]; then
+    eval "$(gvm env)"
+fi
