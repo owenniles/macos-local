@@ -1,18 +1,21 @@
 # ~/.bashrc — interactive Bash configuration
 
+# Homebrew on Apple Silicon.
+if [[ -x /opt/homebrew/bin/brew ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+# Node Version Manager. Load this before the interactive-shell guard so Node
+# is available to both interactive and non-interactive login shells.
+export NVM_DIR="$HOME/.nvm"
+[[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
+
 # This file is also sourced by .bash_profile.  Avoid loading completions and
-# version managers for non-interactive shells.
+# other interactive-only tools for non-interactive shells.
 case $- in
   *i*) ;;
   *) return ;;
 esac
-
-# Homebrew is installed in a different location on Intel and Apple Silicon.
-if [[ -x /opt/homebrew/bin/brew ]]; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-elif [[ -x /usr/local/bin/brew ]]; then
-  eval "$(/usr/local/bin/brew shellenv)"
-fi
 
 # Locally installed tools.
 export BUN_INSTALL="$HOME/.bun"
@@ -24,9 +27,7 @@ if [[ -n ${HOMEBREW_PREFIX:-} && -r "$HOMEBREW_PREFIX/etc/profile.d/bash_complet
   source "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh"
 fi
 
-# Node Version Manager (and its completion, when available).
-export NVM_DIR="$HOME/.nvm"
-[[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
+# NVM shell completion.
 [[ -s "$NVM_DIR/bash_completion" ]] && source "$NVM_DIR/bash_completion"
 
 # GVM (Go Version Manager)
