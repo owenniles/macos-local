@@ -19,7 +19,8 @@ esac
 
 # Locally installed tools.
 export BUN_INSTALL="$HOME/.bun"
-export PATH="$HOME/bin:$HOME/.local/bin:$BUN_INSTALL/bin:$PATH"
+export PNPM_HOME="$HOME/Library/pnpm"
+export PATH="$PNPM_HOME/bin:$HOME/bin:$HOME/.local/bin:$BUN_INSTALL/bin:$PATH"
 
 # Shell completion.
 [[ -r "$HOME/.git-completion.sh" ]] && source "$HOME/.git-completion.sh"
